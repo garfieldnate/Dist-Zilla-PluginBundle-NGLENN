@@ -13,7 +13,7 @@ my $wd = tempd;
 
 my $tzil = Builder->from_config( { dist_root => "$corpus" }, );
 
-ok( $tzil->build, "build dist with \@DAGOLDEN" );
+ok( $tzil->build, "build dist with \@NGLENN" );
 
 done_testing;
 # COPYRIGHT

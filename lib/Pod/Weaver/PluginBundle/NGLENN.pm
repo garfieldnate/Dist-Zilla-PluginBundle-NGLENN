@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-package Pod::Weaver::PluginBundle::DAGOLDEN;
+package Pod::Weaver::PluginBundle::NGLENN;
 
 our $VERSION = '0.073';
 
@@ -31,18 +31,18 @@ END
 sub mvp_bundle_config {
     my @plugins;
     push @plugins, (
-        [ '@DAGOLDEN/SingleEncoding', _exp('-SingleEncoding'), {} ],
-        [ '@DAGOLDEN/WikiDoc',        _exp('-WikiDoc'),        {} ],
-        [ '@DAGOLDEN/CorePrep',       _exp('@CorePrep'),       {} ],
-        [ '@DAGOLDEN/Name',           _exp('Name'),            {} ],
-        [ '@DAGOLDEN/Version',        _exp('Version'),         {} ],
+        [ '@NGLENN/SingleEncoding', _exp('-SingleEncoding'), {} ],
+        [ '@NGLENN/WikiDoc',        _exp('-WikiDoc'),        {} ],
+        [ '@NGLENN/CorePrep',       _exp('@CorePrep'),       {} ],
+        [ '@NGLENN/Name',           _exp('Name'),            {} ],
+        [ '@NGLENN/Version',        _exp('Version'),         {} ],
 
-        [ '@DAGOLDEN/Prelude',     _exp('Region'),  { region_name => 'prelude' } ],
-        [ '@DAGOLDEN/Synopsis',    _exp('Generic'), { header      => 'SYNOPSIS' } ],
-        [ '@DAGOLDEN/Description', _exp('Generic'), { header      => 'DESCRIPTION' } ],
-        [ '@DAGOLDEN/Usage',       _exp('Generic'), { header      => 'USAGE' } ],
-        [ '@DAGOLDEN/Overview',    _exp('Generic'), { header      => 'OVERVIEW' } ],
-        [ '@DAGOLDEN/Stability',   _exp('Generic'), { header      => 'STABILITY' } ],
+        [ '@NGLENN/Prelude',     _exp('Region'),  { region_name => 'prelude' } ],
+        [ '@NGLENN/Synopsis',    _exp('Generic'), { header      => 'SYNOPSIS' } ],
+        [ '@NGLENN/Description', _exp('Generic'), { header      => 'DESCRIPTION' } ],
+        [ '@NGLENN/Usage',       _exp('Generic'), { header      => 'USAGE' } ],
+        [ '@NGLENN/Overview',    _exp('Generic'), { header      => 'OVERVIEW' } ],
+        [ '@NGLENN/Stability',   _exp('Generic'), { header      => 'STABILITY' } ],
     );
 
     for my $plugin (
@@ -59,10 +59,10 @@ sub mvp_bundle_config {
 
     push @plugins,
       (
-        [ '@DAGOLDEN/Leftovers', _exp('Leftovers'), {} ],
-        [ '@DAGOLDEN/postlude', _exp('Region'), { region_name => 'postlude' } ],
+        [ '@NGLENN/Leftovers', _exp('Leftovers'), {} ],
+        [ '@NGLENN/postlude', _exp('Region'), { region_name => 'postlude' } ],
         [
-            '@DAGOLDEN/Support',
+            '@NGLENN/Support',
             _exp('Support'),
             {
                 perldoc            => 0,
@@ -73,16 +73,16 @@ sub mvp_bundle_config {
                 repository_content => $repo_intro
             }
         ],
-        [ '@DAGOLDEN/Authors',      _exp('Authors'),      {} ],
-        [ '@DAGOLDEN/Contributors', _exp('Contributors'), {} ],
-        [ '@DAGOLDEN/Legal',        _exp('Legal'),        {} ],
-        [ '@DAGOLDEN/List', _exp('-Transformer'), { 'transformer' => 'List' } ],
+        [ '@NGLENN/Authors',      _exp('Authors'),      {} ],
+        [ '@NGLENN/Contributors', _exp('Contributors'), {} ],
+        [ '@NGLENN/Legal',        _exp('Legal'),        {} ],
+        [ '@NGLENN/List', _exp('-Transformer'), { 'transformer' => 'List' } ],
       );
 
     return @plugins;
 }
 
-# ABSTRACT: DAGOLDEN's default Pod::Weaver config
+# ABSTRACT: NGLENN's default Pod::Weaver config
 # COPYRIGHT
 
 1;
@@ -113,7 +113,7 @@ following weaver.ini:
 
 =head1 USAGE
 
-This PluginBundle is used automatically with the C<@DAGOLDEN> L<Dist::Zilla>
+This PluginBundle is used automatically with the C<@NGLENN> L<Dist::Zilla>
 plugin bundle.
 
 It also has region collectors for:

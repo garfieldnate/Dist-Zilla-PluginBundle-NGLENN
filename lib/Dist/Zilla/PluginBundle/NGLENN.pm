@@ -1,10 +1,10 @@
 use strict;
 use warnings;
 
-package Dist::Zilla::PluginBundle::DAGOLDEN;
-# ABSTRACT: Dist::Zilla configuration the way DAGOLDEN does it
+package Dist::Zilla::PluginBundle::NGLENN;
+# ABSTRACT: Dist::Zilla configuration the way NGLENN does it
 
-our $VERSION = '0.073';
+our $VERSION = '0.01';
 
 # Dependencies
 use Moose 0.99;
@@ -161,7 +161,7 @@ has weaver_config => (
     is      => 'ro',
     isa     => 'Str',
     lazy    => 1,
-    default => sub { $_[0]->payload->{weaver_config} || '@DAGOLDEN' },
+    default => sub { $_[0]->payload->{weaver_config} || '@NGLENN' },
 );
 
 has github_issues => (
@@ -187,7 +187,7 @@ has authority => (
     isa     => 'Str',
     lazy    => 1,
     default => sub {
-        exists $_[0]->payload->{authority} ? $_[0]->payload->{authority} : 'cpan:DAGOLDEN';
+        exists $_[0]->payload->{authority} ? $_[0]->payload->{authority} : 'cpan:NGLENN';
     },
 );
 
@@ -362,7 +362,7 @@ sub configure {
         # are we up to date?
         [
             'PromptIfStale' => {
-                modules           => [qw/Dist::Zilla Dist::Zilla::PluginBundle::DAGOLDEN/],
+                modules           => [qw/Dist::Zilla Dist::Zilla::PluginBundle::NGLENN/],
                 check_all_plugins => 1,
             }
         ],
@@ -445,7 +445,7 @@ __END__
 =head1 SYNOPSIS
 
   # in dist.ini
-  [@DAGOLDEN]
+  [@NGLENN]
 
 =head1 DESCRIPTION
 
@@ -471,7 +471,7 @@ following dist.ini:
   ; file modifications
   [InsertCopyright    ; add copyright at "# COPYRIGHT"
   [PodWeaver]         ; generate Pod
-  config_plugin = @DAGOLDEN ; my own plugin allows Pod::WikiDoc
+  config_plugin = @NGLENN ; my own plugin allows Pod::WikiDoc
   replacer = replace_with_comment
   post_code_replacer = replace_with_nothing
 
@@ -502,7 +502,7 @@ following dist.ini:
   skip = ^t::lib
 
   [Authority]
-  authority = cpan:DAGOLDEN
+  authority = cpan:NGLENN
   do_munging = 0
 
   [MinimumPerl]   ; determine minimum perl version
@@ -545,7 +545,7 @@ following dist.ini:
 
   [PromptIfStale]     ; check if our build tools are out of date
   module = Dist::Zilla
-  module = Dist::Zilla::PluginBundle::DAGOLDEN
+  module = Dist::Zilla::PluginBundle::NGLENN
   check_all_plugins = 1
 
   [Git::CheckFor::CorrectBranch] ; ensure on master branch
@@ -596,7 +596,7 @@ the following options:
 =for :list
 * C<is_task> — this indicates whether C<TaskWeaver> or C<PodWeaver> should be used.
 Default is 0.
-* C<authority> — specifies the C<x_authority> field for pause.  Defaults to 'cpan:DAGOLDEN'.
+* C<authority> — specifies the C<x_authority> field for pause.  Defaults to 'cpan:NGLENN'.
 * C<auto_prereq> — this indicates whether C<AutoPrereqs> should be used or not.  Default is 1.
 # C<auto_version> - this indicates whether C<AutoVersion> should be used or not. Default is 0.
 * C<darkpan> — for private code; uses C<FakeRelease> and fills in dummy repo/bugtracker data
@@ -607,7 +607,7 @@ Default is 0.
 * C<tag_format> — given to C<Git::Tag>.  Default is 'release-%v' to be more
 robust than just the version number when parsing versions for
 L<Git::NextVersion>
-* C<weaver_config> — specifies a L<Pod::Weaver> bundle.  Defaults to @DAGOLDEN.
+* C<weaver_config> — specifies a L<Pod::Weaver> bundle.  Defaults to @NGLENN.
 * C<version_regexp> — given to L<Git::NextVersion>.  Default
 is '^release-(.+)$'
 * C<no_git> — bypass all git-dependent plugins
@@ -629,13 +629,13 @@ copied.
 This PluginBundle now supports C<ConfigSlicer>, so you can pass in options to the
 plugins used like this:
 
-  [@DAGOLDEN]
+  [@NGLENN]
   Test::MinimumVersion.max_target_perl = 5.014
   ExecDir.dir = scripts
 
 This PluginBundle also supports C<PluginRemover>, so dropping a plugin is as easy as this:
 
-  [@DAGOLDEN]
+  [@NGLENN]
   -remove = Test::Portability
 
 =head1 SEE ALSO
@@ -644,5 +644,6 @@ This PluginBundle also supports C<PluginRemover>, so dropping a plugin is as eas
 * L<Dist::Zilla>
 * L<Dist::Zilla::Plugin::PodWeaver>
 * L<Dist::Zilla::Plugin::TaskWeaver>
+* L<Dist::Zilla::PluginBundle::DAGOLDEN>
 
 =cut
