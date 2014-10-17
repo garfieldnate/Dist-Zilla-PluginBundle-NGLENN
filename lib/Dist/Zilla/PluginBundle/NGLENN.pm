@@ -26,7 +26,7 @@ use Dist::Zilla::Plugin::Git::Contributors 0.007   ();
 use Dist::Zilla::Plugin::CopyFilesFromBuild           ();
 use Dist::Zilla::Plugin::CPANFile                     ();
 use Dist::Zilla::Plugin::Git::NextVersion             ();
-use Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch ();
+# use Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch ();
 use Dist::Zilla::Plugin::GithubMeta 0.36       ();
 use Dist::Zilla::Plugin::InsertCopyright 0.001 ();
 use Dist::Zilla::Plugin::MetaNoIndex ();
@@ -370,10 +370,10 @@ sub configure {
         'Manifest', # core
 
         # before release
-        (
-            $self->no_git ? ()
-            : ('Git::CheckFor::CorrectBranch')
-        ),
+        # (
+        #     $self->no_git ? ()
+        #     : ('Git::CheckFor::CorrectBranch')
+        # ),
         (
             $self->no_git ? ()
             : [ 'Git::Check' => { allow_dirty => undef } ]
@@ -540,8 +540,6 @@ following dist.ini:
   module = Dist::Zilla
   module = Dist::Zilla::PluginBundle::NGLENN
   check_all_plugins = 1
-
-  [Git::CheckFor::CorrectBranch] ; ensure on master branch
 
   [Git::Check]        ; ensure all files checked in
   allow_dirty = dist.ini

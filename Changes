@@ -2,3 +2,4 @@ Revision history for Dist-Zilla-PluginBundle-NGLENN
 
 {{$NEXT}}
     Forked from Dist-Zilla-PluginBundle-DAGOLDEN version 0.072
+    Removed Git::CheckFor::CorrectBranch for Windows compatibility
