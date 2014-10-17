@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 package Dist::Zilla::PluginBundle::NGLENN;
-# ABSTRACT: Dist::Zilla configuration the way NGLENN does it
+# ABSTRACT: Dist::Zilla plugin configuration for me
 
 our $VERSION = '0.01';
 
@@ -580,6 +580,17 @@ following dist.ini:
 
   [Git::Push]         ; push repo to remote
   push_to = origin
+
+This distribution was forked from the DAGOLDEN plugin bundle. The
+abstract should really be "Dist::Zilla configuration the way NGLENN,
+who does it the way DAGOLDEN does it, does it", but that was too
+long. I struggled with many complexities of writing a good dist.ini,
+but found that David Golden had solved all of them.
+
+I tweaked it slightly to fit my needs, most importantly to make
+everything work on Windows. I will probably continue to pull changes
+made to the originating DAGOLDEN distribution. See the changes file
+for more information.
 
 =head1 USAGE
 
