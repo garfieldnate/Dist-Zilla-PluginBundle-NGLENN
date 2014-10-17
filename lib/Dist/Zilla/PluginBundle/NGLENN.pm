@@ -200,13 +200,6 @@ has darkpan => (
     },
 );
 
-has no_bugtracker => ( # XXX deprecated
-    is      => 'ro',
-    isa     => 'Bool',
-    lazy    => 1,
-    default => 0,
-);
-
 has auto_version => (
     is      => 'ro',
     isa     => 'Bool',
@@ -615,7 +608,6 @@ is '^release-(.+)$'
 * C<no_spellcheck> — omit C<Test::PodSpelling> tests
 * C<no_coverage> — omit PodCoverage tests
 * C<no_minimum_perl> — omit C<Test::MinimumVersion> tests
-* C<no_bugtracker> — DEPRECATED
 
 When running without git, C<GatherDir> is used instead of C<Git::GatherDir>.
 and all git check and commit operations are disabled.
