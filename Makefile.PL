@@ -10,15 +10,15 @@ use ExtUtils::MakeMaker 6.17;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Dist::Zilla configuration the way DAGOLDEN does it",
-  "AUTHOR" => "David Golden <dagolden\@cpan.org>",
+  "ABSTRACT" => "Dist::Zilla plugin configuration for me",
+  "AUTHOR" => "Nate Glenn <nglenn\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.17"
   },
-  "DISTNAME" => "Dist-Zilla-PluginBundle-DAGOLDEN",
+  "DISTNAME" => "Dist-Zilla-PluginBundle-NGLENN",
   "EXE_FILES" => [],
   "LICENSE" => "apache",
-  "NAME" => "Dist::Zilla::PluginBundle::DAGOLDEN",
+  "NAME" => "Dist::Zilla::PluginBundle::NGLENN",
   "PREREQ_PM" => {
     "Dist::Zilla" => "5.014",
     "Dist::Zilla::Plugin::Authority" => "1.006",
@@ -29,7 +29,6 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::CheckMetaResources" => "0.001",
     "Dist::Zilla::Plugin::CheckPrereqsIndexed" => "0.002",
     "Dist::Zilla::Plugin::CopyFilesFromBuild" => 0,
-    "Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch" => 0,
     "Dist::Zilla::Plugin::Git::Contributors" => "0.007",
     "Dist::Zilla::Plugin::Git::NextVersion" => 0,
     "Dist::Zilla::Plugin::GithubMeta" => "0.36",
@@ -51,6 +50,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::Test::Portability" => 0,
     "Dist::Zilla::Plugin::Test::ReportPrereqs" => "0.016",
     "Dist::Zilla::Plugin::Test::Version" => 0,
+    "Dist::Zilla::Plugin::TravisYML" => 0,
     "Dist::Zilla::PluginBundle::Filter" => 0,
     "Dist::Zilla::PluginBundle::Git" => "1.121010",
     "Dist::Zilla::Role::PluginBundle::Config::Slicer" => 0,
@@ -78,7 +78,7 @@ my %WriteMakefileArgs = (
     "Test::DZil" => 0,
     "Test::More" => "0.96"
   },
-  "VERSION" => "0.073",
+  "VERSION" => "0.01",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -95,7 +95,6 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Plugin::CheckMetaResources" => "0.001",
   "Dist::Zilla::Plugin::CheckPrereqsIndexed" => "0.002",
   "Dist::Zilla::Plugin::CopyFilesFromBuild" => 0,
-  "Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch" => 0,
   "Dist::Zilla::Plugin::Git::Contributors" => "0.007",
   "Dist::Zilla::Plugin::Git::NextVersion" => 0,
   "Dist::Zilla::Plugin::GithubMeta" => "0.36",
@@ -117,6 +116,7 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Plugin::Test::Portability" => 0,
   "Dist::Zilla::Plugin::Test::ReportPrereqs" => "0.016",
   "Dist::Zilla::Plugin::Test::Version" => 0,
+  "Dist::Zilla::Plugin::TravisYML" => 0,
   "Dist::Zilla::PluginBundle::Filter" => 0,
   "Dist::Zilla::PluginBundle::Git" => "1.121010",
   "Dist::Zilla::Role::PluginBundle::Config::Slicer" => 0,
