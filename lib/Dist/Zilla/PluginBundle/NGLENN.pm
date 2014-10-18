@@ -28,6 +28,7 @@ use Dist::Zilla::Plugin::CPANFile                     ();
 use Dist::Zilla::Plugin::Git::NextVersion             ();
 # use Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch ();
 use Dist::Zilla::Plugin::GithubMeta 0.36       ();
+use Dist::Zilla::Plugin::TravisYML ();
 use Dist::Zilla::Plugin::InsertCopyright 0.001 ();
 use Dist::Zilla::Plugin::MetaNoIndex ();
 use Dist::Zilla::Plugin::MetaProvides::Package 1.14 (); # hides private packages
@@ -256,6 +257,17 @@ sub configure {
         'ReadmeFromPod', # in build dir
         'License',       # core
 
+        # Travis config file
+        (
+            $self->no_git
+            ? ()
+            : [
+                'TravisYML' => {
+                  build_branch => 'master',
+                }
+            ]
+        ),
+
         # generated t/ tests
         [
             'Test::Compile' => {
@@ -471,7 +483,8 @@ following dist.ini:
   ; generated files
   [License]           ; boilerplate license
   [ReadmeFromPod]     ; from Pod (runs after PodWeaver)
-
+  [TravisYML]         ; Travis-CI configuration
+  build_branch = master
   ; t tests
   [Test::ReportPrereqs]   ; show prereqs in automated test output
 

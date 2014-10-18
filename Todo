@@ -3,3 +3,7 @@ Revision history for Dist-Zilla-PluginBundle-NGLENN
 - Write some code
 - Write some tests
 - Replace boilerplate docs with real documentation
+
+Dependent on others:
+    - Figure out how to replace NGLENN bundle with real dependencies in output dependencies (authordeps, etc.); then it could be tested with Travis, which would be useful for making sure all of those dependencies are still OK.
+    - Put Git::CheckFor::CorrectBranch back in when the bug in File::NFSLock is fixed
