@@ -388,7 +388,11 @@ sub configure {
         # ),
         (
             $self->no_git ? ()
-            : [ 'Git::Check' => { allow_dirty => undef } ]
+            : [ 'Git::Check' => {
+                  # these are copied to the root by CopyFilesFromBuild
+                  allow_dirty => $self->auto_version ? 'cpanfile' : 'Makefile.PL'
+                }
+              ]
         ),
         'CheckMetaResources',
         'CheckPrereqsIndexed',
