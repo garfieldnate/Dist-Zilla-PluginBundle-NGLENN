@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-NGLENN
 
 {{$NEXT}}
+
+0.01      2014-10-18 22:07:21+09:00 Asia/Tokyo
     Forked from Dist-Zilla-PluginBundle-DAGOLDEN version 0.072
     Removed Git::CheckFor::CorrectBranch for Windows compatibility
