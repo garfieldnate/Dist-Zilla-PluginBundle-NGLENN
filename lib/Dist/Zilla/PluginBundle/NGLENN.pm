@@ -29,6 +29,7 @@ use Dist::Zilla::Plugin::Git::NextVersion             ();
 # use Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch ();
 use Dist::Zilla::Plugin::GithubMeta 0.36       ();
 use Dist::Zilla::Plugin::TravisYML ();
+use Dist::Zilla::Plugin::TravisCI::StatusBadge;
 use Dist::Zilla::Plugin::InsertCopyright 0.001 ();
 use Dist::Zilla::Plugin::MetaNoIndex ();
 use Dist::Zilla::Plugin::MetaProvides::Package 1.14 (); # hides private packages
@@ -255,6 +256,7 @@ sub configure {
 
         # generated distribution files
         'ReadmeFromPod', # in build dir
+        'TravisCI::StatusBadge', # in readme file
         'License',       # core
 
         # Travis config file
