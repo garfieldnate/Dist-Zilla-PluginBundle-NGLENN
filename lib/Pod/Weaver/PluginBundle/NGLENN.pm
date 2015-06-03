@@ -3,7 +3,7 @@ use warnings;
 
 package Pod::Weaver::PluginBundle::NGLENN;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Pod::Weaver 4; # he played knick-knack on my door
 use Pod::Weaver::Config::Assembler;
