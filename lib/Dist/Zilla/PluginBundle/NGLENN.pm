@@ -431,7 +431,7 @@ sub configure {
                         : (
                             commit_msg        => "After release: bump \$VERSION and timestamp Changes",
                             allow_dirty       => [qw/Changes Makefile.PL/],
-                            allow_dirty_match => '^lib',
+                            allow_dirty_match => '^lib|^bin',
                         )
                     }
                 ],
