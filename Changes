@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-NGLENN
 
 {{$NEXT}}
+
+0.04      2017-11-22 14:55:50+01:00 Europe/Berlin
     Add install guide
     fix build
 0.03      2015-06-03 21:53:18+09:00 Asia/Tokyo
