@@ -28,6 +28,7 @@ use Dist::Zilla::Plugin::CPANFile                     ();
 use Dist::Zilla::Plugin::Git::NextVersion             ();
 # use Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch ();
 use Dist::Zilla::Plugin::GithubMeta 0.36       ();
+use Dist::Zilla::Plugin::GitHub::UploadRelease        ();
 use Dist::Zilla::Plugin::TravisYML ();
 use Dist::Zilla::Plugin::TravisCI::StatusBadge;
 use Dist::Zilla::Plugin::InsertCopyright 0.001 ();
@@ -231,10 +232,10 @@ sub configure {
         # gather and prune
         (
             $self->no_git
-            ? [ 'GatherDir' => { exclude_filename => [qw/README.mkdn cpanfile Makefile.PL/] }
+            ? [ 'GatherDir' => { exclude_filename => [qw/README.mkdn cpanfile Makefile.PL LICENSE INSTALL/] }
               ] # core
             : [
-                'Git::GatherDir' => { exclude_filename => [qw/README.mkdn cpanfile Makefile.PL/] }
+                'Git::GatherDir' => { exclude_filename => [qw/README.mkdn cpanfile Makefile.PL LICENSE INSTALL/] }
             ]
         ),
         'PruneCruft',   # core
@@ -379,7 +380,7 @@ sub configure {
         # copy files from build back to root for inclusion in VCS;
         # for auto_version we want cpanfile.  For embedded version we want Makefile.PL
         [
-            CopyFilesFromBuild => { copy => $self->auto_version ? 'cpanfile' : 'Makefile.PL' }
+            CopyFilesFromBuild => { copy => $self->auto_version ? ['cpanfile', 'LICENSE', 'INSTALL'] : ['Makefile.PL', 'LICENSE', 'INSTALL'] }
         ],
 
         # manifest -- must come after all generated files
@@ -438,6 +439,7 @@ sub configure {
                     }
                 ],
                 [ 'Git::Push' => { push_to => \@push_to } ],
+                'GitHub::UploadRelease'
             )
         ),
 
@@ -586,6 +588,7 @@ following dist.ini:
   [Git::Tag]          ; tag repo with custom tag
   tag_format = release-%v
 
+
   ; NextRelease acts *during* pre-release to write $VERSION and
   ; timestamp to Changes and  *after* release to add a new {{$NEXT}}
   ; section, so to act at the right time after release, it must actually
@@ -599,6 +602,8 @@ following dist.ini:
 
   [Git::Push]         ; push repo to remote
   push_to = origin
+
+  [GitHub::UploadRelease] ; upload release to tag on GitHub
 
 This distribution was forked from the DAGOLDEN plugin bundle. The
 abstract should really be "Dist::Zilla configuration the way NGLENN,
