@@ -39,6 +39,7 @@ use Dist::Zilla::Plugin::PromptIfStale 0.011 ();
 use Dist::Zilla::Plugin::Prereqs::AuthorDeps ();
 use Dist::Zilla::Plugin::RewriteVersion ();
 use Dist::Zilla::Plugin::ReadmeFromPod 0.19            (); # for dzil v5
+use Dist::Zilla::Plugin::InstallGuide                  ();
 use Dist::Zilla::Plugin::TaskWeaver 0.101620           ();
 use Dist::Zilla::Plugin::Test::Compile 2.036           (); # various features
 use Dist::Zilla::Plugin::Test::MinimumVersion 2.000003 ();
@@ -256,6 +257,7 @@ sub configure {
 
         # generated distribution files
         'ReadmeFromPod', # in build dir
+        'InstallGuide',   # in build dir
         'TravisCI::StatusBadge', # in readme file
         'License',       # core
 
@@ -488,6 +490,7 @@ following dist.ini:
   ; generated files
   [License]           ; boilerplate license
   [ReadmeFromPod]     ; from Pod (runs after PodWeaver)
+  [InstallGuide]      ; installation guide
   [TravisYML]         ; Travis-CI configuration
   build_branch = master
   ; t tests
