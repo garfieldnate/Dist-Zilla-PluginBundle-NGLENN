@@ -1,7 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-NGLENN
 
 {{$NEXT}}
-
+    (hopefully) fixed Git action order
 0.06      2017-11-22 17:46:56+01:00 Europe/Berlin
     (hopefully) fixed Git action order
 0.05      2017-11-22 17:39:27+01:00 Europe/Berlin

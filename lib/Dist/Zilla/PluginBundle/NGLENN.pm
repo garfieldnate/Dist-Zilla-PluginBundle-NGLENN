@@ -431,10 +431,10 @@ sub configure {
                             allow_dirty_match => '^lib|^bin',
                         )
                     },
-                    'Git::Tag' => { tag_format => $self->tag_format }
+                    'Git::Tag' => { tag_format => $self->tag_format },
+                    'Git::Push' => { push_to => \@push_to },
+                    'GitHub::UploadRelease' => {}
                 ],
-                [ 'Git::Push' => { push_to => \@push_to } ],
-                'GitHub::UploadRelease'
             )
         )
 
