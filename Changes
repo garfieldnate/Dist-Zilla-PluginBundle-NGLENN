@@ -1,7 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-NGLENN
 
 {{$NEXT}}
-
+    Add install guide
+    fix build
 0.03      2015-06-03 21:53:18+09:00 Asia/Tokyo
     Commit bin folder after bumping version
     Add Pod::Markdown to prerequisites
