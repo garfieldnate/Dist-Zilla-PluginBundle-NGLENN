@@ -4,7 +4,7 @@ use warnings;
 package Dist::Zilla::PluginBundle::NGLENN;
 # ABSTRACT: Dist::Zilla plugin configuration for me
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 # Dependencies
 use Moose 0.99;

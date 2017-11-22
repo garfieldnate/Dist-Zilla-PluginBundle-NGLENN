@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-NGLENN
 
 {{$NEXT}}
+
+0.05      2017-11-22 17:39:27+01:00 Europe/Berlin
     added GitHub release upload
     copy INSTALL and LICENSE to repo
 0.04      2017-11-22 14:55:50+01:00 Europe/Berlin
