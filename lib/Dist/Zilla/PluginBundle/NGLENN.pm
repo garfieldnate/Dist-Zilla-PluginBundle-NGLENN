@@ -413,12 +413,6 @@ sub configure {
         # Note -- NextRelease is here to get the ordering right with
         # git actions.  It is *also* a file munger that acts earlier
 
-        (
-            $self->no_git
-            ? ()
-            : ( [ 'Git::Tag' => { tag_format => $self->tag_format } ], )
-        ),
-
         # bumps Changes
         'NextRelease', # core (also munges files)
 
@@ -436,12 +430,13 @@ sub configure {
                             allow_dirty       => [qw/Changes Makefile.PL/],
                             allow_dirty_match => '^lib|^bin',
                         )
-                    }
+                    },
+                    'Git::Tag' => { tag_format => $self->tag_format }
                 ],
                 [ 'Git::Push' => { push_to => \@push_to } ],
                 'GitHub::UploadRelease'
             )
-        ),
+        )
 
     );
 
